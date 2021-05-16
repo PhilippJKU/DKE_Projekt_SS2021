@@ -1,36 +1,29 @@
 #!flask/bin/python
 from flask import Flask, jsonify, request, abort
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
 from pymongo import MongoClient
 
 app = Flask(__name__)
 CORS(app, support_credentials=True)
 
 
-# @app.route('/')
-# def index():
-#     return "Hello, World!"
-
 @app.route('/get_test', methods=['GET'])
-# @cross_origin(supports_credentials=True)
 def get_test():
     return "hallo get"
 
 
 @app.route('/post_test', methods=['POST'])
-# @cross_origin(supports_credentials=True)
 def post_test():
     return "hallo post"
 
 
 @app.route('/login', methods=['POST'])
-# @cross_origin(supports_credentials=True)
 def login():
     if not request.json:
         abort(400)
     username = request.json.get("username")
     password = request.json.get("password")
-    if (check_user_data(username, password)):
+    if check_user_data(username, password):
         return jsonify({'login_successful': True, 'username': username})
     else:
         return jsonify({'login_successful': False, 'username': username, 'error': "Invalid username or password!"})

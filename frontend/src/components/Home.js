@@ -1,38 +1,9 @@
 import React from 'react';
-import {NavLink, Switch, BrowserRouter, Route, Link} from 'react-router-dom';
-import LoginPage from "../pages/LoginPage";
-import SignUpPage from "../pages/SignUpPage";
+import {Link} from 'react-router-dom';
 
 
 function Home (){
-    return localStorage.getItem('user') ? (
-            <div>
-                <table>
-                    <tbody>
-                    <tr>
-                        <td>
-                            <label> Your are logged in.</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <Link to="/profile">Profile</Link>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="#" onClick={localStorage.clear()}>LOGOUT</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <Link to="/profile">Sign Up</Link>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        ) : (
+    return (
             <div>
                 <table>
                     <tbody>
@@ -42,7 +13,6 @@ function Home (){
                         </td>
                     </tr>
                     <tr>
-                        {}
                         <td>
                             <Link to="/login">Login</Link>
                         </td>
@@ -53,10 +23,6 @@ function Home (){
                         </td>
                     </tr>
                     </tbody>
-                    {/*<Switch>*/}
-                    {/*    <Route exact path='/login' component={LoginPage}/>*/}
-                    {/*    <Route exact path='/signup' component={SignUpPage}/>*/}
-                    {/*</Switch>*/}
                 </table>
             </div>
         );

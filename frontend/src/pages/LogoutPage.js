@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { useHistory } from "react-router-dom";
 import '../App.css';
-import axios from 'axios';
 
 
 class LogoutPage extends Component {

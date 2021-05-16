@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { useHistory } from "react-router-dom";
 import '../App.css';
 import axios from 'axios';
 
@@ -39,7 +38,6 @@ class SignUpPage extends Component {
                     console.log("Sign up was successful!")
                     localStorage.setItem('user', response.data.username)
                     this.setState({message: 'Signing Up was successful!'});
-                    // this.props.history.push(`/profile/${this.state.username}`);
                 } else {
                     console.log("Signing Up failed!")
                     this.setState({message: "Signing Up faild: " + response.data.error});

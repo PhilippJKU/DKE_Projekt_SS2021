@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { useHistory } from "react-router-dom";
 import '../App.css';
 import axios from 'axios';
 
@@ -36,7 +35,6 @@ class LoginPage extends Component {
                 this.setState({loggedIn: true});
                 localStorage.setItem('user', response.data.username)
                 this.setState({message: 'Login was successful!'});
-                // this.props.history.push(`/profile/${this.state.username}`);
             } else {
                 console.log("Login failed!")
                 this.setState({message: "Login failed: " + response.data.error});

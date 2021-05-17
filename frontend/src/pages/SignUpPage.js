@@ -36,11 +36,15 @@ class SignUpPage extends Component {
             }).then(response => {
                 if (response.data.signup_successful) {
                     console.log("Sign up was successful!")
-                    localStorage.setItem('user', response.data.username)
                     this.setState({message: 'Signing Up was successful!'});
+
+                    // after a successful signup, the user should automatically be logged in, therefore
+                    // the username is saved in the local storage (see loginPage for a explanation of local storage)
+                    localStorage.setItem('user', response.data.username)
+                    localStorage.setItem('pwd', response.data.password)
                 } else {
                     console.log("Signing Up failed!")
-                    this.setState({message: "Signing Up faild: " + response.data.error});
+                    this.setState({message: "Signing Up failed: " + response.data.error});
                 }
             }).catch(error => {
                 console.log("Signing Up failed!")

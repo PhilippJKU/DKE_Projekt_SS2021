@@ -1,8 +1,5 @@
 import React from "react";
-import {BrowserRouter, Route, Link, Switch, Redirect} from "react-router-dom";
-// import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useHistory } from "react-router-dom";
-// import { Link } from 'react-router';
+import {BrowserRouter, Route, Link, Switch} from "react-router-dom";
 
 
 import Home from './components/Home';
@@ -19,6 +16,8 @@ import PrivateRoute from "./components/PrivateRoute";
 
 class App extends React.Component {
     componentDidMount() {
+        // here the local storage is cleared when the page is loaded, to make sure that no user is logged in when the page
+        // is loaded
         localStorage.clear()
     }
 

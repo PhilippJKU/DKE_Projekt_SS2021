@@ -33,7 +33,13 @@ class LoginPage extends Component {
             if(response.data.login_successful) {
                 console.log("Login was successful!")
                 this.setState({loggedIn: true});
+
+                // save the username (and the password) in the local storage of the browser
+                // the user is kept logged in until the local storage is cleared
+                // reading from the local storage ( with localStorage.getItem('user')), we can
+                // check which user is logged in and use this to personalize content of the personal pages
                 localStorage.setItem('user', response.data.username)
+                localStorage.setItem('pwd', response.data.password)
                 this.setState({message: 'Login was successful!'});
             } else {
                 console.log("Login failed!")
